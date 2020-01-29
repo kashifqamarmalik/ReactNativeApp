@@ -2,11 +2,11 @@ import React, {useContext} from 'react';
 import { View, FlatList } from 'react-native';
 import ListItem from './ListItem';
 import {MediaContext, MediaProvider} from '../contexts/MediaContext';
-import {useFetch} from "../hooks/APIHooks.js"
+import {getAllMedia} from "../hooks/APIHooks.js"
 
 const List = () => {
   const [media, setMedia] = useContext(MediaContext);
-  const [ data, loading] = useFetch ('https://raw.githubusercontent.com/mattpe/wbma/master/docs/assets/test.json');
+  const [ data, loading] = getAllMedia ('https://raw.githubusercontent.com/mattpe/wbma/master/docs/assets/test.json');
   console.log('List', data, loading);
   setMedia(data);
     return (
